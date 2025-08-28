@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <div class="banner-slider">
+  <div class="slide active">
+    <img src="728a59ca-95cf-4db2-86ec-a59df59cedf0.jpg" alt="Slide 1">
+    <div class="slide-content">
+      <h2>Welcome to Sharon's Music!</h2>
+      <p>Experience the magic of our new album.</p>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="Gemini_Generated_Image_5xn2335xn2335xn2.png" alt="Slide 2">
+    <div class="slide-content">
+      <h2>New Tour Dates Announced!</h2>
+      <p>Get your tickets now for the upcoming shows.</p>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="728a59ca-95cf-4db2-86ec-a59df59cedf0.jpg" alt="Slide 3">
+    <div class="slide-content">
+      <h2>Listen to Our Latest Single</h2>
+      <p>Now available on all streaming platforms.</p>
+    </div>
+  </div>
+  <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+  <button class="next" onclick="plusSlides(1)">&#10095;</button>
+</div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Album Landing Page</title>
+<style>
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  background: url(music-notes-frame-designify.png) no-repeat center center fixed;
+  background-size: cover;
+  scroll-behavior: smooth;
+}
+
+body {
+color: #000000;  
+  padding-top: 70px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Changed to a semi-transparent light blue */
+  background: rgba(135, 206, 235, 0.8);
+  color: #fff;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 2px solid #ff0066;
+}
+
+header.scrolled {
+  /* Changed to a slightly darker blue */
+  background: rgba(135, 206, 235, 0.9);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+nav a {
+  transition: color 0.3s ease;
+}
+
+nav a.active {
+  color: #00ffe7;
+  border-bottom: 2px solid #00ffe7;
+}
+
+.container {
+  /* Changed to a semi-transparent pink */
+background: rgba(255, 255, 255, 0.9); /* Light white */ 
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  max-width: 900px;
+  width: 100%;
+  padding: 40px;
+  backdrop-filter: blur(12px);
+  animation: fadeIn 2s ease;
+  margin: 0 auto 40px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.album-cover {
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 25px rgba(255, 0, 150, 0.7);
+  transition: transform 0.4s ease;
+}
+
+.album-cover:hover {
+  transform: scale(1.05);
+}
+
+.info {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.album-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ff0099;
+  text-shadow: 0 0 10px rgba(255, 0, 153, 0.8);
+}
+
+.artist-name {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #00ffe7;
+  text-shadow: 0 0 10px rgba(0, 255, 231, 0.8);
+}
+
+.release-date {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.artist-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 20px auto;
+  display: block;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0, 255, 200, 0.7);
+}
+
+audio {
+  width: 100%;
+  margin: 20px 0;
+  outline: none;
+  border-radius: 8px;
+  /* Changed to a light gray */
+background: #ffffff; /* White */
+border: 1px solid #ccc; /* Optional: add light border */ 
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: #fff;
+  /* Changed the gradient to a light purple */
+  background: linear-gradient(90deg, #ff7eb3, #ff758c); /* Pink gradient */
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 0, 153, 0.8);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(255, 0, 153, 1);
+}
+
+.album-icon {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0, 255, 200, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.album-icon:hover {
+  transform: scale(1.1);
+}
+
+.song-list-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.song-info {
+  flex-grow: 1;
+}
+
+.song-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ff0099;
+}
+
+.song-artist {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  color: #00ffe7;
+}
+
+.song-audio {
+  width: 250px;
+}
+.banner-slider {
+  position: relative;
+  max-width: 900px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.banner-slider .slide {
+  display: none;
+  width: 100%;
+}
+
+.banner-slider .slide.active {
+  display: block;
+  animation: slideIn 1s ease-in-out;
+}
+
+.banner-slider img {
+  width: 100%;
+  display: block;
+}
+
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.slide-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.slide-content p {
+  font-size: 1.2rem;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+</style>
+  <body>
+  <header>
+    <h2 class="logo">~🌟~ Sharon's Lit Music ~🎶~</h2>
+    <nav>
+      <a href="#home">Home</a> 
+      <a href="#aboutus">About us</a>
+      <a href="#tracklist">Music</a>
+      <a href="#contact">Contact</a>
+      <a href="#eventSection">Tour</a>
+    </nav>
+  </header>
+
+  <div class="container" id="home">
+    <div id="music-main">
+      <img src="music album/Miniature Figure in Hand's Embrace.png" alt="Album Cover" class="album-cover">
+      
+      <div class="info">
+        <h1 class="album-title">OUT</h1>
+        <h2 class="artist-name">Sharon</h2>
+        <p class="release-date">Release Date: August 4, 2025</p>
+      </div>
+
+      <img src="Snapchat-1963723649.jpg" alt="Artist Photo" class="artist-photo">
+
+      <audio controls>
+        <source src="RANI - Amen (lyric video).mp3" type="audio/mpeg">
+        Your browser does not not support the audio element.
+      </audio>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="RANI - Amen (lyric video).mp3" download class="btn">⬇ Download Song</a>
+      </div> 
+    </div>
+  </div>
+
+  <div class="container" id="tracklist">
+    <h2>Tracklist</h2>
+
+    <div class="song-list-item">
+      <img src="Gemini_Generated_Image_sz3jcusz3jcusz3j.png" alt="New Song Icon" class="album-icon">
+      <div class="song-info">
+        <div class="song-title">ANTHEM🌸</div>
+        <div class="song-artist">Sharon</div>
+      </div>
+      <audio controls class="song-audio">
+        <source src="Cedarmont Kids - I Am a C-H-R-I-S-T-I-A-N.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="song-list-item">
+      <img src="Gemini_Generated_Image_sz3jcusz3jcusz3j.png" alt="New Song Icon" class="album-icon">
+      <div class="song-info">
+        <div class="song-title">SPRING🌊</div>
+        <div class="song-artist">Sharon</div>
+      </div>
+      <audio controls class="song-audio">
+        <source src="Rainbows.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="song-list-item">
+      <img src="Gemini_Generated_Image_sz3jcusz3jcusz3j.png" alt="New Song Icon" class="album-icon">
+      <div class="song-info">
+        <div class="song-title">KNOWN👑</div>
+        <div class="song-artist">Sharon</div>
+      </div>
+      <audio controls class="song-audio">
+        <source src="Terrian - He Sees You (Acoustic Video).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+
+  <div class="container" id="eventSection">
+    <div class="event-details">
+      <p><strong>Venue:</strong> The Grand Ballroom, Cityville</p>
+      <p><strong>Date:</strong> Friday, OCTOBER 30, 2025</p>
+      <p><strong>Time:</strong> Doors at 7:00 PM | Show at 8:00 PM</p>
+      <p><strong>Special Guests:</strong> The Rhythm Rockets & DJ Flux</p>
+    </div>
+    <h1 style="font-size:3em; margin-bottom:20px; color:#6600ff;">Upcoming Event</h1>
+    <div id="countdown" style="font-size:5em; font-weight:bold; color:#00ffe7; margin-bottom:50px; text-shadow: 0 0 15px rgba(0, 255, 231, 0.9);">Loading...</div>
+    <div class="ticket-section" style="display:flex; align-items:flex-start; gap:30px; justify-content:space-between; flex-wrap:wrap;">
+      <div style="flex:1; min-width:300px; max-width:450px;">
+        <h2 style="font-size:1.8em; margin-bottom:20px; color:#ff0099;">Get Your Tickets!</h2>
+        <form id="ticketForm" style="text-align:center; width:100%;">
+          <input type="text" id="ticketName" placeholder="Your Name" required style="width:100%; padding:15px; font-size:1.2em; margin:10px 0; border-radius:10px; border:1px solid #ccc; background:rgba(255,255,255,0.8);">
+          <input type="email" id="ticketEmail" placeholder="Your Email" required style="width:100%; padding:15px; font-size:1.2em; margin:10px 0; border-radius:10px; border:1px solid #ccc; background:rgba(255,255,255,0.8);">
+          <button type="submit" class="btn" style="width:100%; padding:15px; font-size:1.2em; border-radius:10px; background:linear-gradient(90deg, #00ffe7, #00aaff); color:#fff; border:none; cursor:pointer; margin-bottom:10px; box-shadow:0 0 20px rgba(0, 255, 231, 0.7);">Sign Up</button>
+          <div class="success" id="successMessage" style="font-size:1.2em; color:#00ffe7; margin-bottom:10px;"></div>
+          <button id="downloadTicket" class="btn" style="display:none; width:100%; padding:15px; font-size:1.2em; border-radius:10px; background:linear-gradient(90deg, #ff0099, #ff55bb); color:#fff; border:none; cursor:pointer; box-shadow:0 0 20px rgba(255, 0, 153, 0.7);">Download Your Ticket</button>
+        </form>
+      </div>
+
+      <div style="flex:1; min-width:250px; display:flex; justify-content:center; align-items:center;">
+        <img src="Gemini_Generated_Image_cmju9ecmju9ecmju.png" alt="Ticket Image" style="max-width:250px; width:100%; border-radius:15px; box-shadow:0 0 20px rgba(0,0,0,0.4);">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const eventDate = new Date("October 30, 2025 20:00:00").getTime();
+    const countdownFunction = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdown").innerHTML = "EVENT HAS BEGUN!";
+        }
+    }, 1000);
+
+    document.getElementById("ticketForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const name = document.getElementById("ticketName").value;
+        const email = document.getElementById("ticketEmail").value;
+        const successMessage = document.getElementById("successMessage");
+        const downloadButton = document.getElementById("downloadTicket");
+        setTimeout(() => {
+            successMessage.innerHTML = `Thanks, ${name}! Your registration for ${email} is confirmed!`;
+            downloadButton.style.display = "block";
+            downloadButton.onclick = () => {
+                alert("Downloading your virtual ticket!");
+            };
+        }, 1000);
+    });
+
+    const header = document.querySelector('header');
+    const sections = document.querySelectorAll('.container, section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.href.includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+  </script>
+
+  <section id="aboutus">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        Welcome to **Sharon's Music** 🎵. It's really nice to have you on my page.
+
+Over here, you will experience a whole realm of music that is lit 🔥 and enthusiastic 🤩. We are passionate about creating music that gives amazing beats 🥁. Our songs are designed to bring creativity 🎨 and joy 😁 to every listener.
+
+Stay tuned as we continue our journey into this litful realm of music! We love you really!!! 🥰
+
+Have a blissful time ✨
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>
+        Have questions or want to reach out? We'd love to hear from you! 💌 
+        Fill out the form below or connect with us on social media.
+      </p>
+      <form style="margin-top:20px; text-align:left;">
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required style="width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #ccc;"><br>
+        <label for="email">Your Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required style="width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #ccc;"><br>
+        <label for="message">Your Message:</label><br>
+        <textarea id="message" name="message" rows="4" placeholder="Type your message here..." required style="width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #ccc;"></textarea><br>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+ <form id="regForm">
+  <input type="text" name="name" placeholder="Enter your name" required><br><br>
+  <input type="email" name="email" placeholder="Enter your email" required><br><br>
+  <input type="tel" name="phone" placeholder="Enter your phone number" required><br><br>
+  <input type="number" name="persons" placeholder="No. of persons" min="1" required><br><br>
+  <button type="submit">Register</button>
+</form>
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyZ9LmIZ6vi7GKuzr6gySoY9qwOnIAkmMn7iwED46elMjsgRokgY6tTJ3oIt7SXVWe3Wg/exec";
+
+  document.getElementById("regForm").addEventListener("submit", e => {
+    e.preventDefault();
+
+    let formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+      persons: e.target.persons.value
+    };
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.text())
+    .then(msg => alert(msg)) // should show "Success"
+    .catch(err => alert("Error: " + err));
+  });
+</script>
+</body>
