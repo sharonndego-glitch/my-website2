@@ -1,27 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <div class="banner-slider">
-  <div class="slide active">
-    <img src="728a59ca-95cf-4db2-86ec-a59df59cedf0.jpg" alt="Slide 1">
-    <div class="slide-content">
-      <h2>Welcome to Sharon's Music!</h2>
-      <p>Experience the magic of our new album.</p>
-    </div>
-  </div>
-  <div class="slide">
-    <img src="Gemini_Generated_Image_5xn2335xn2335xn2.png" alt="Slide 2">
-    <div class="slide-content">
-      <h2>New Tour Dates Announced!</h2>
-      <p>Get your tickets now for the upcoming shows.</p>
-    </div>
-  </div>
-  <div class="slide">
-    <img src="728a59ca-95cf-4db2-86ec-a59df59cedf0.jpg" alt="Slide 3">
-    <div class="slide-content">
-      <h2>Listen to Our Latest Single</h2>
-      <p>Now available on all streaming platforms.</p>
-    </div>
   </div>
   <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
   <button class="next" onclick="plusSlides(1)">&#10095;</button>
@@ -105,8 +84,8 @@ background: rgba(255, 255, 255, 0.9); /* Light white */
   margin-bottom: 20px;
   box-shadow: 0 0 25px rgba(255, 0, 150, 0.7);
   transition: transform 0.4s ease;
+  background-color: #1f1f2e; /* Added this line */
 }
-
 .album-cover:hover {
   transform: scale(1.05);
 }
@@ -144,8 +123,8 @@ background: rgba(255, 255, 255, 0.9); /* Light white */
   display: block;
   object-fit: cover;
   box-shadow: 0 0 20px rgba(0, 255, 200, 0.7);
+  background-color: #1f1f2e; /* Added this line */
 }
-
 audio {
   width: 100%;
   margin: 20px 0;
@@ -183,6 +162,7 @@ border: 1px solid #ccc; /* Optional: add light border */
   object-fit: cover;
   box-shadow: 0 0 10px rgba(0, 255, 200, 0.7);
   transition: transform 0.3s ease;
+  background-color: #1a1a1a; /* Added this line */
 }
 
 .album-icon:hover {
@@ -219,6 +199,7 @@ border: 1px solid #ccc; /* Optional: add light border */
 .banner-slider {
   position: relative;
   max-width: 900px;
+   height: 400px;
   margin: 40px auto;
   overflow: hidden;
   border-radius: 20px;
@@ -237,6 +218,8 @@ border: 1px solid #ccc; /* Optional: add light border */
 
 .banner-slider img {
   width: 100%;
+  height: 100%;       
+  object-fit: cover; 
   display: block;
 }
 
@@ -286,6 +269,32 @@ border: 1px solid #ccc; /* Optional: add light border */
 .prev:hover, .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+/* Home section box */
+#home.container {
+  background: rgba(25, 25, 60, 0.95);   /* brighter deep navy blue */
+}
+
+/* Tracklist box */
+#tracklist.container {
+  background: rgba(60, 20, 90, 0.95);   /* vibrant dark purple */
+}
+
+/* Event section box */
+#eventSection.container {
+  background: rgba(15, 40, 80, 0.95);   /* richer midnight blue */
+}
+
+/* About Us box */
+#aboutus .container {
+  background: rgba(120, 100, 20, 0.95); /* vibrant dark golden yellow */
+}
+
+/* Contact Us box */
+#contact .container {
+  background: linear-gradient(135deg, rgba(40, 20, 80, 0.95), rgba(90, 20, 90, 0.95));
+  /* brighter navy → magenta gradient */
+}
+
 </style>
   <body>
   <header>
@@ -298,18 +307,48 @@ border: 1px solid #ccc; /* Optional: add light border */
       <a href="#eventSection">Tour</a>
     </nav>
   </header>
+<div class="banner-slider">
+    <div class="slide active">
+      <img src="ChatGPT Image Aug 28, 2025, 10_04_56 PM.png" alt="Slide 1">
+      <div class="slide-content">
+        <h2>Welcome to Sharon's Music!</h2>
+        <p>Experience the magic of our new album.</p>
+      </div>
+    </div>
 
+    <div class="slide">
+      <img src="ChatGPT Image Aug 28, 2025, 10_11_45 PM.png" alt="Slide 2">
+      <div class="slide-content">
+        <h2>New Tour Dates Announced!</h2>
+        <p>Get your tickets now for the upcoming shows.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="728a59ca-95cf-4db2-86ec-a59df59cedf0.jpg" alt="Slide 3">
+      <div class="slide-content">
+        <h2>Listen to Our Latest Single</h2>
+        <p>Now available on all streaming platforms.</p>
+      </div>
+    </div>
+
+    <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+    <button class="next" onclick="plusSlides(1)">&#10095;</button>
+  </div>
   <div class="container" id="home">
     <div id="music-main">
-      <img src="music album/Miniature Figure in Hand's Embrace.png" alt="Album Cover" class="album-cover">
-      
+      <div class="glow-box">
+  <img src="music album/Miniature Figure in Hand's Embrace.png" alt="Album Cover" class="album-cover">
+</div>
       <div class="info">
         <h1 class="album-title">OUT</h1>
         <h2 class="artist-name">Sharon</h2>
         <p class="release-date">Release Date: August 4, 2025</p>
       </div>
-
-      <img src="Snapchat-1963723649.jpg" alt="Artist Photo" class="artist-photo">
+      
+      <div class="glow-box">
+  <img src="Snapchat-1963723649.jpg" alt="Artist Photo" class="artist-photo">
+</div>
 
       <audio controls>
         <source src="RANI - Amen (lyric video).mp3" type="audio/mpeg">
@@ -317,8 +356,9 @@ border: 1px solid #ccc; /* Optional: add light border */
       </audio>
 
       <div style="text-align: center; margin-top: 20px;">
-        <a href="RANI - Amen (lyric video).mp3" download class="btn">⬇ Download Song</a>
-      </div> 
+       <div class="glow-box">
+  <a href="RANI - Amen (lyric video).mp3" download class="btn">⬇ Download Song</a>
+</div>
     </div>
   </div>
 
@@ -326,7 +366,9 @@ border: 1px solid #ccc; /* Optional: add light border */
     <h2>Tracklist</h2>
 
     <div class="song-list-item">
-      <img src="Gemini_Generated_Image_sz3jcusz3jcusz3j.png" alt="New Song Icon" class="album-icon">
+      <div class="glow-box">
+  <img src="Gemini_Generated_Image_sz3jcusz3jcusz3j.png" alt="New Song Icon" class="album-icon">
+</div>
       <div class="song-info">
         <div class="song-title">ANTHEM🌸</div>
         <div class="song-artist">Sharon</div>
@@ -366,10 +408,10 @@ border: 1px solid #ccc; /* Optional: add light border */
     <div class="event-details">
       <p><strong>Venue:</strong> The Grand Ballroom, Cityville</p>
       <p><strong>Date:</strong> Friday, OCTOBER 30, 2025</p>
-      <p><strong>Time:</strong> Doors at 7:00 PM | Show at 8:00 PM</p>
-      <p><strong>Special Guests:</strong> The Rhythm Rockets & DJ Flux</p>
+      <p><strong>Time:</strong> Doors at 4:00 PM | Show at 5:00 PM</p>
+      <p><strong>Special Guests:</strong> Terrian, Mr. Norman, DJ Drumzy</p>
     </div>
-    <h1 style="font-size:3em; margin-bottom:20px; color:#6600ff;">Upcoming Event</h1>
+    <h1 style="font-size:3em; margin-bottom:20px; color:#6600ff;">LAGOS STATE ~ Upcoming Event </h1>
     <div id="countdown" style="font-size:5em; font-weight:bold; color:#00ffe7; margin-bottom:50px; text-shadow: 0 0 15px rgba(0, 255, 231, 0.9);">Loading...</div>
     <div class="ticket-section" style="display:flex; align-items:flex-start; gap:30px; justify-content:space-between; flex-wrap:wrap;">
       <div style="flex:1; min-width:300px; max-width:450px;">
@@ -489,28 +531,47 @@ Have a blissful time ✨
   <button type="submit">Register</button>
 </form>
 <script>
-  const scriptURL = "https://script.google.com/macros/s/AKfycbyZ9LmIZ6vi7GKuzr6gySoY9qwOnIAkmMn7iwED46elMjsgRokgY6tTJ3oIt7SXVWe3Wg/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwW4kLbof9Y2nQFdqrrdQTcp6eFnkPrKXDCFFWt8pMiU-K4qq5-eFCysWEDgDi0OBzY/exec"; // IMPORTANT: You still need to paste your URL here
 
   document.getElementById("regForm").addEventListener("submit", e => {
     e.preventDefault();
-
-    let formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      phone: e.target.phone.value,
-      persons: e.target.persons.value
-    };
-
+    let formData = new FormData(document.getElementById("regForm"));
+    
     fetch(scriptURL, {
       method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json"
-      }
+      body: formData
     })
-    .then(res => res.text())
-    .then(msg => alert(msg)) // should show "Success"
-    .catch(err => alert("Error: " + err));
+    .then(response => response.text())
+    .then(data => alert(data))
+    .catch(error => alert("Error: " + error));
   });
+</script>
+
+</form>
+<script>
+  // (Your form script is here)
+</script>
+
+<script>
+  let slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("slide");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }    
+    slides[slideIndex - 1].style.display = "block";  
+    setTimeout(showSlides, 4000); // ✅ Change slide every 4 seconds
+  }
+
+  // Buttons (manual control)
+  function plusSlides(n) {
+    slideIndex += n - 1;
+    showSlides();
+  }
 </script>
 </body>
